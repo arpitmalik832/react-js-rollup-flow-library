@@ -90,10 +90,10 @@ describe('logUtils unit tests', () => {
 
   it('tableLog unit test', () => {
     process.env.APP_ENV = ENVS.DEV;
-    tableLog('test');
+    tableLog(['test']);
     expect(console.table).toHaveBeenCalledTimes(1);
     process.env.APP_ENV = ENVS.PROD;
-    tableLog('test');
+    tableLog(['test']);
     expect(console.table).toHaveBeenCalledTimes(1);
   });
 
