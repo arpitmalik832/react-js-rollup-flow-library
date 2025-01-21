@@ -7,6 +7,12 @@ import { dirname } from 'path';
 import zlib from 'zlib';
 
 class BuildStatsPlugin {
+  outputPath;
+
+  startTime;
+
+  stats;
+
   constructor(options = {}) {
     this.outputPath = options.outputPath || 'bundle-stats.json';
     this.startTime = 0;
@@ -21,7 +27,7 @@ class BuildStatsPlugin {
     };
   }
 
-  apply(compiler) {
+  apply = compiler => {
     compiler.hooks.beforeCompile.tap('BuildStatsPlugin', () => {
       this.startTime = Date.now();
     });
@@ -73,8 +79,8 @@ class BuildStatsPlugin {
         if (this.stats.files.length > 0) {
           this.stats.files = this.stats.files.map(i => ({
             ...i,
-            percentageBySize: ((i.size / this.stats.totalSize) * 100).toFixed(
-              2,
+            percentageBySize: Number(
+              ((i.size / this.stats.totalSize) * 100).toFixed(2),
             ),
           }));
           this.stats.largestFile = this.stats.files.reduce(
@@ -86,7 +92,7 @@ class BuildStatsPlugin {
         callback();
       },
     );
-  }
+  };
 }
 
 export { BuildStatsPlugin };
