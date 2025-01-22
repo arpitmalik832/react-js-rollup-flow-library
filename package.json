@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/arpitmalik832/react-js-rollup-library"
+    "url": "https://github.com/arpitmalik832/react-js-rollup-flow-library"
   },
   "engines": {
     "node": ">=20.17.0"
@@ -246,7 +246,6 @@
     "webpack-bundle-analyzer": "^4.10.2"
   },
   "dependencies": {
-    "@arpitmalik832/react-js-rollup-library": "link:",
     "@reduxjs/toolkit": "^2.5.0",
     "axios": "^1.7.9",
     "react": "^19.0.0",
